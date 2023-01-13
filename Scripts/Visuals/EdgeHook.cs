@@ -72,7 +72,7 @@ namespace Visuals
             controlB = cB.transform.position;
 
             
-            List<Vector3> waypoints = BezierUtilities.GetWaypoints(GetCurve(), 30);
+            List<Vector3> waypoints = BezierUtilities.GetWaypoints(GetCurve(), 2);
             for (int i = 0; i < waypoints.Count; i++)
             {
                 Gizmos.color = Color.Lerp(Color.green, Color.red, (float)i / waypoints.Count);
@@ -92,7 +92,7 @@ namespace Visuals
             controlB = cB.transform.position;
             
             
-            List<Vector3> waypoints = BezierUtilities.GetWaypoints(GetCurve(), 30);
+            List<Vector3> waypoints = BezierUtilities.GetWaypoints(GetCurve(), 2);
             for (int i = 0; i < waypoints.Count; i++)
             {
                 Gizmos.color = Color.Lerp(Color.green, Color.red, (float)i / waypoints.Count);

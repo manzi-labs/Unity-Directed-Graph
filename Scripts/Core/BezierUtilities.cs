@@ -14,14 +14,35 @@ namespace Core
                    3f * oneMinusT * t * t * curve.p2 +
                    t * t * t * curve.p3;
         }
-        public static List<Vector3> GetWaypoints(BezierCurve curve, float sample)
+        // public static List<Vector3> GetWaypoints(BezierCurve curve, float sample)
+        // {
+        //     List<Vector3> waypoints = new List<Vector3>();
+        //     float step = 1f / (sample - 1);
+        //     for (float i = 0; i <= 1; i += step)
+        //     {
+        //         waypoints.Add(GetPoint(curve, i));
+        //     }
+        //     return waypoints;
+        // }
+        
+        public static List<Vector3> GetWaypoints(BezierCurve curve, float distanceBetweenPoints)
         {
+            float length = ApproximateLength(curve, 200);
+            int segments = (int)(length / distanceBetweenPoints);
+            float tIncrement = 1f / segments;
+            float t = tIncrement;
+
             List<Vector3> waypoints = new List<Vector3>();
-            float step = 1f / (sample - 1);
-            for (float i = 0; i <= 1; i += step)
+            waypoints.Add(GetPoint(curve, 0));
+
+            for (int i = 1; i < segments; i++)
             {
-                waypoints.Add(GetPoint(curve, i));
+                waypoints.Add(GetPoint(curve, t));
+                t += tIncrement;
             }
+
+            waypoints.Add(GetPoint(curve, 1));
+
             return waypoints;
         }
         

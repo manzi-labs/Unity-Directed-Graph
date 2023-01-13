@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Core;
 using UnityEditor;
 using UnityEngine;
@@ -25,7 +26,6 @@ namespace Visuals
         public void AddNode()
         {
             graph.AddNode(this.transform.position);
-            
             UpdateGraphView();
         }
         private void RemoveNode(GraphNode node)
@@ -112,7 +112,6 @@ namespace Visuals
                     _edgeDictionary.Add(newEdgeObject.GetComponent<EdgeHook>(), graph.GetNodes()[i]);
                 }
             }
-            
         }
         
         
@@ -195,6 +194,11 @@ namespace Visuals
         {
             Gizmos.color = Color.magenta;
             Gizmos.DrawSphere(this.transform.position, 2);
+        }
+
+        private void OnEnable()
+        {
+            UpdateGraphView();
         }
     }
 }
