@@ -1,4 +1,5 @@
-﻿using UnityEditor;
+﻿using Core;
+using UnityEditor;
 using UnityEngine;
 using Visuals;
 
@@ -70,6 +71,26 @@ namespace Editor_Tools
             if (GUILayout.Button("Remove Edge"))
             {
                 myScript.RemoveEdge();
+            }
+        }
+    }
+
+    [CustomEditor(typeof(Graph))]
+    public class GraphExtension : Editor
+    {
+        public override void OnInspectorGUI()
+        {
+            DrawDefaultInspector();
+
+            Graph myScript = (Graph)target;
+            if (GUILayout.Button("Load Graph"))
+            {
+                myScript.DeSerializeGraph();
+            }
+
+            if (GUILayout.Button("Save Graph"))
+            {
+                myScript.SerializeGraph();
             }
         }
     }

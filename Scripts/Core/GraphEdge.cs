@@ -8,8 +8,8 @@ namespace Core
     {
         public int toNodeIndex;
 
-        public Vector3 controlA;
-        public Vector3 controlB;
+        public SerializableVector3 controlA;
+        public SerializableVector3 controlB;
 
         public GraphEdge(int _toNodeIndex)
         {

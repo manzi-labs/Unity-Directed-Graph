@@ -6,7 +6,7 @@ namespace Core
     [System.Serializable]
     public class GraphNode
     {
-        public Vector3 position;
+        public SerializableVector3 position;
         public List<GraphEdge> edges;
 
         public GraphNode(Vector3 _position)

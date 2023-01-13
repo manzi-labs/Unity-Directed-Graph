@@ -5,8 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Graphs/Graph SO")]
 public class GraphScriptableObject : ScriptableObject
 {
-    [SerializeField]
-    private List<GraphNode> nodes;
+    public List<GraphNode> nodes;
     
     public List<GraphNode> GetNodes()
     {

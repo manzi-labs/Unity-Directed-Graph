@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Core;
+using UnityEditor;
 using UnityEngine;
 
 namespace Visuals
@@ -111,6 +112,7 @@ namespace Visuals
                     _edgeDictionary.Add(newEdgeObject.GetComponent<EdgeHook>(), graph.GetNodes()[i]);
                 }
             }
+            
         }
         
         
